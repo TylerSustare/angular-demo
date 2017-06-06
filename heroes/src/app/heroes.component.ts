@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
-import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-heroes',
@@ -11,13 +10,16 @@ import { OnInit } from '@angular/core';
 })
 
 export class HeroesComponent implements OnInit{
-  constructor(private heroService: HeroService){} // Now Angular knows to supply an instance of the HeroService when it creates an AppComponent. According to angular docs 'constructors should not contain complex logic'. Constructors are for simple initialization. 
 
   // properties 
   heroes: Hero[];
   selectedHero: Hero;
 
   // methods 
+  constructor(
+    private heroService: HeroService)
+    {} // Now Angular knows to supply an instance of the HeroService when it creates an AppComponent. According to angular docs 'constructors should not contain complex logic'. Constructors are for simple initialization. 
+
   ngOnInit():void{
     this.getHeroes();
   }
