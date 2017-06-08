@@ -6,4 +6,12 @@
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
   </ul>
-<hero-detail [hero]="selectedHero"></hero-detail>
+<!--<hero-detail [hero]="selectedHero"></hero-detail>--> 
+<!--You'll no longer show the full HeroDetailComponent here. Instead, you'll display the hero detail on its own page and route to it as you did in the dashboard.-->
+
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero <!-- becomes uppercase with the uppercase 'pipe' -->
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

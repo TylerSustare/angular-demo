@@ -9,6 +9,10 @@ export class HeroService{
         return Promise.resolve(HEROES); // like await in C#
     } 
 
+    getHero(id: number): Promise<Hero>{
+        return this.getHeroes().then(e => e.find(f => f.id === id));
+    }
+
     getHeroesSlowly(): Promise<Hero[]>{
         return new Promise(p => {
             // simulate slow connection to get heroes
